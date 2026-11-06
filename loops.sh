@@ -6,8 +6,12 @@
 #!/bin/bash
 
 # gets input from user
-echo "Enter a number:" # displays text to screen
+echo "Enter a positive integer:" # displays text to screen
 read n # stores input in a variable to be used three ways, below
+
+# input validation
+if [[ $n =~ ^[+]?[0-9]+$ ]] # checks whether n is positive and contains only numbers
+then # continues to use valid input of n below
 
 # prints the multiplication table from 1 to n, one row per line
 # loops through the numbers 1 to n, increments of 1
@@ -62,9 +66,12 @@ prime=1 #sets a variable to represent when a number is prime
     # if statement displays only the prime numbers
     if ((prime == 1))
     then
-        
         echo -n "$m "
-        
     fi # ends if statement
 done # ends loop
 echo ""
+
+# input validation
+else # when n is not a postive integer
+    echo "Input is not a positive integer" # displays message to user
+fi # end of if-else statement
